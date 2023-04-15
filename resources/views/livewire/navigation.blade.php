@@ -44,7 +44,7 @@
 
                         @foreach ($categories as $category)
 
-                            <a href="#" class="text-white hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">{{ $category->name }}</a>
+                            <a href="{{ route('posts.category', $category) }}" class="text-white hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">{{ $category->name }}</a>
 
                         @endforeach
 
@@ -104,7 +104,7 @@
 
             @foreach ($categories as $category)
 
-                <a href="#" class="text-white hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">{{ $category->name }}</a>
+                <a href="{{ route('posts.category', $category) }}" class="text-white hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">{{ $category->name }}</a>
 
             @endforeach
 
