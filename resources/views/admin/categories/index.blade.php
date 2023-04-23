@@ -7,6 +7,13 @@
 @stop
 
 @section('content')
+    <div>
+        @if (session('info'))
+            <div class="alert alert-success">
+                <strong>{{ session('info') }}</strong>
+            </div>
+        @endif
+    </div>
     <div class="card">
         <div class="card-header">
             <a class="btn btn-secondary float-right" href="{{ route('admin.categories.create')}}">New category</a>

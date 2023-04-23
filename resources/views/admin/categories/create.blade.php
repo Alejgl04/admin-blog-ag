@@ -7,13 +7,52 @@
 @stop
 
 @section('content')
-    <p>Welcome to this beautiful admin panel.</p>
-@stop
+    <div class="card">
+        <div class="card-body">
+            {!! Form::open(['route' => 'admin.categories.store', 'method' => 'post']) !!}
 
-@section('css')
-    {{-- <link rel="stylesheet" href="/css/admin_custom.css"> --}}
+               <div class="row">
+                    <div class="col">
+                        {!! Form::label('name', 'Category') !!}
+                        {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Enter the name of the category']) !!}
+
+                        <div>
+                            @error('name')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="col">
+                        {!! Form::label('slug', 'Slug') !!}
+                        {!! Form::text('slug', null, ['class' => 'form-control', 'placeholder' => 'Enter the name of the slug','readonly' => 'disabled']) !!}
+
+                        <div>
+                            @error('slug')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+                    </div>
+               </div>
+
+               <div class="mt-2">
+                    {!! Form::submit('Create Category', ['class' => 'btn btn-primary']) !!}
+               </div>
+
+            {!! Form::close() !!}
+        </div>
+    </div>
 @stop
 
 @section('js')
-    <script> console.log('Hi!'); </script>
-@stop
+    <script src="{{ asset('vendor/jQuery-Plugin-stringToSlug-1.3/jquery.stringToSlug.min.js')}}"></script>
+
+    <script>
+        $(document).ready( function() {
+            $("#name").stringToSlug({
+                setEvents: 'keyup keydown blur',
+                getPut: '#slug',
+                space: '-'
+            });
+        });
+    </script>
+@endsection
