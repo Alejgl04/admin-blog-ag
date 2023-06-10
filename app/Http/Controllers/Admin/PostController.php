@@ -8,6 +8,7 @@ use App\Models\Category;
 use App\Models\Post;
 use App\Models\Tag;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 
 class PostController extends Controller
@@ -37,6 +38,12 @@ class PostController extends Controller
     {
         $post = Post::create( $request->all() );
 
+        if ($request->file('file')) {
+            $urlImage = Storage::put('posts', $request->file('file'));
+            $post->image()->create([
+                'url' => $urlImage,
+            ]);
+        }
         if ( $request->tags ) {
             $post->tags()->attach($request->tags);
         }
