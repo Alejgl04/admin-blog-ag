@@ -11,24 +11,40 @@
     <div class="card">
         <div class="card-body">
             {!! Form::open(['route' => 'admin.posts.store', 'autocomplete' => 'off']) !!}
+
+                {!! Form::hidden('user_id', auth()->user()->id) !!}
                 <div class="row">
                     <div class="col">
 
                         {!! Form::label('name', 'Name:') !!}
                         {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Enter the post name']) !!}
-
+                        <div>
+                            @error('name')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
                     </div>
                     <div class="col">
 
                         {!! Form::label('slug', 'Slug:') !!}
                         {!! Form::text('slug', null, ['class' => 'form-control', 'placeholder' => 'Enter the slug name', 'readonly' => true]) !!}
-
+                        <div>
+                            @error('slug')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col">
                         {!! Form::label('category_id', 'Categories:') !!}
                         {!! Form::select('category_id', $categories, null, ['class' => 'form-control']) !!}
+
+                        <div>
+                            @error('category_id')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
                     </div>
                     <div class="col">
                        <p class="font-weight-bold"> Tags </p>
@@ -40,6 +56,11 @@
                             </label>
 
                        @endforeach
+                       <div>
+                        @error('tags')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                    </div>
                     </div>
                 </div>
                 <hr>
@@ -55,17 +76,33 @@
                             {!! Form::radio('status', 2) !!}
                             Published
                         </label>
+                        <div>
+                            @error('status')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col">
                         {!! Form::label('extract', 'Extract:') !!}
                         {!! Form::textarea('extract', null, ['class' => 'form-control']) !!}
+
+                        <div>
+                            @error('extract')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
                     </div>
 
                     <div class="col">
                         {!! Form::label('body', 'Body Post:') !!}
                         {!! Form::textarea('body', null, ['class' => 'form-control']) !!}
+                        <div>
+                            @error('body')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
                     </div>
                 </div>
 
