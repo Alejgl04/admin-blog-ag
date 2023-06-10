@@ -63,8 +63,8 @@ return [
     |
     */
 
-    'logo' => '<b>AG</b> DEVELOPER',
-    'logo_img' => 'vendor/adminlte/dist/img/logo.jpeg',
+    'logo' => '<b>JB</b> Studio',
+    'logo_img' => 'vendor/adminlte/dist/img/6842.jpg',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
@@ -109,7 +109,7 @@ return [
     'preloader' => [
         'enabled' => true,
         'img' => [
-            'path' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+            'path' => 'vendor/adminlte/dist/img/6842.png',
             'alt' => 'AdminLTE Preloader Image',
             'effect' => 'animation__shake',
             'width' => 60,
@@ -297,10 +297,6 @@ return [
         ],
 
         // Sidebar items:
-        [
-            'type' => 'sidebar-menu-search',
-            'text' => 'search',
-        ],
         [
             'text' => 'blog',
             'url'  => 'admin/blog',

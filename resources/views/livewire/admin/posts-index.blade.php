@@ -3,7 +3,7 @@
         <input wire:model="search" class="form-control" placeholder="Enter the post name">
     </div>
 
-    @if ( $post->count() )
+    @if ( $posts->count() )
         <div class="card-body">
             <table class="table table-striped">
                 <thead>
