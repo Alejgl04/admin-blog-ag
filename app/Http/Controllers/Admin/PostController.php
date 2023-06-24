@@ -47,7 +47,7 @@ class PostController extends Controller
         if ( $request->tags ) {
             $post->tags()->attach($request->tags);
         }
-        return redirect()->route('admin.posts.edit', $post);
+        return redirect()->route('admin.posts.edit', $post)->with('info',"The post: $post->name has been successfully created");
     }
 
     /**
