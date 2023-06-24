@@ -2,6 +2,13 @@
     <div class="card-header">
         <input wire:model="search" class="form-control" placeholder="Enter the post name">
     </div>
+    <div>
+        @if (session('info'))
+            <div class="alert alert-success">
+                <strong>{{ session('info') }}</strong>
+            </div>
+        @endif
+    </div>
 
     @if ( $posts->count() )
         <div class="card-body">
